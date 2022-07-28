@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Accounting Quiz</title>
+  </head>
+  <body class="align-self-stretch">
+    <div class="container">
+      <div class="completed-quiz" *ngIf="quizComplete">
+        <h1>Congratulations! You have completed the quiz!</h1>
+        <img id="celebrating-gif" src="https://i.pinimg.com/originals/9b/96/79/9b96799d061a0528da6b0da7bac5374a.gif">
+      </div>
+      <div class="question">
+        <h2>{{ currentQuestion?.title }}</h2>
+        <p>{{ currentQuestion?.description }}</p>
+
+        <div *ngIf="currentAnswer" class="bodyContent">
+          <table
+            class="table answer-list"
+            *ngFor="let answer of currentAnswer?.correct_answers"
+          >
+            <thead>
+              <tr>
+                <td></td>
+                <th>Transaction Type</th>
+                <td rowspan="answer.entries.length">
+                  <select name="type" [(ngModel)]="answer.type">
+                    <option value=""></option>
+                    <option value="revenue">Revenue</option>
+                    <option value="accrual">Accrual</option>
+                    <option value="deferred">Deferred</option>
+                    <option value="cash">Cash</option>
+                    <option value="receivable">Receivable</option>
+                    <option value="contra">Contra</option>
+                    <option value="system credit">System Credit</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <th>Date</th>
+                <th>Entry Type</th>
+                <th>Debit</th>
+                <th>Credit</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr *ngFor="let entry of answer.entries">
+                <td>
+                  <input
+                    type="text"
+                    placeholder="mm/dd"
+                    [(ngModel)]="entry.when"
+                  />
+                </td>
+                <td>
+                  <select name="type" [(ngModel)]="entry.type">
+                    <option value=""></option>
+                    <option value="revenue">Revenue</option>
+                    <option value="accrual">Accrual</option>
+                    <option value="deferred">Deferred</option>
+                    <option value="cash">Cash</option>
+                    <option value="receivable">Receivable</option>
+                    <option value="contra">Contra</option>
+                    <option value="system credit">System Credit</option>
+                  </select>
+                </td>
+                <td>
+                  $<input
+                    type="number"
+                    [(ngModel)]="entry.Dr"
+                    placeholder="Amount"
+                  />
+                </td>
+                <td>
+                  $<input
+                    type="number"
+                    [(ngModel)]="entry.Cr"
+                    placeholder="Amount"
+                  />
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="footing">
+        <button
+          *ngIf="currentAnswer"
+          (click)="submitAnswers()"
+          class="btn btn-info"
+        >
+          Submit
+        </button>
+        <button *ngIf="!currentAnswer" class="btn btn-info" (click)="quizAgain()">Play Again</button>
+        <div class="question-container">
+          <h6>Question {{questionIndex}} of {{questions.length}}</h6>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

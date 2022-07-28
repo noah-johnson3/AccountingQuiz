@@ -1,0 +1,33 @@
+.answer-list {
+  text-align: center;
+}
+body {
+  background-image: url("https://wallpaperaccess.com/full/22501.png");
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: auto;
+  background-size: 100%;
+  background-position: center;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  text-align: center;
+}
+.question{
+  padding-top: 5%;
+}
+.bodyContent{
+  padding-top: 5%;
+}
+input, select{
+  border-radius: 7px;
+}
+h6{
+  padding-top: 5%;
+}
+.completed-quiz{
+  padding: 5%;
+}
+#celebrating-gif{
+  height: 350px;
+  width: auto;
+}
