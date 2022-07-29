@@ -13,5 +13,4 @@ Accounting Quiz is an application that retrieves quiz data from a RESTful endpoi
 
 ## How To Use Accounting Quiz
 1. Fill out the answer form the application will move to the next question if your answers are correct, otherwise it will tell you Wrong Asnwer. Try again.
-2. Fill out the second question if correct, you will go the end of the quiz screen. Where it will Congradulate you on finishing and ask you to Quiz Again.
-3. 
+2. Fill out the second question if correct, you will go the end of the quiz screen. Where it will Congradulate you on finishing and ask you to Quiz Again. 
